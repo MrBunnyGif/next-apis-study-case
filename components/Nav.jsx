@@ -12,11 +12,10 @@ const Nav = () => {
   const [toggleDropDown, setToggleDropDown] = useState(false);
 
   useEffect(() => {
-    const setProviders = async () => {
-      const response = await getProviders();
-      setProviders(response);
-    };
-    setProviders();
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
   }, []);
 
   return (
@@ -102,7 +101,7 @@ const Nav = () => {
                   type="button"
                   onClick={() => {
                     setToggleDropDown(false);
-                    signOut()
+                    signOut();
                   }}
                   className="mt-5 w-full black_btn"
                 >
