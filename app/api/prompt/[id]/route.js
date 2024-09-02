@@ -37,7 +37,7 @@ export const PATCH = async (req, { params }) => {
       status: 200,
     });
   } catch (error) {
-    console.error("GET ~ error:", error);
+    console.error("PATCH ~ error:", error);
     return new Response("Failed to update prompt", {
       status: 500,
     });
@@ -46,7 +46,6 @@ export const PATCH = async (req, { params }) => {
 
 
 export const DELETE = async (req, { params }) => {
-  const { prompt, tag } = await req.json();
   try {
     await connectToDB();
 
@@ -56,7 +55,7 @@ export const DELETE = async (req, { params }) => {
       status: 200,
     });
   } catch (error) {
-    console.error("GET ~ error:", error);
+    console.error("DELETE ~ error:", error);
     return new Response("Failed to delete prompt", {
       status: 500,
     });
